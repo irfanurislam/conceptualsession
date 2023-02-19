@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>first implement</title>
+</head>
+<body>
+    
+  <section class="text-center">
+        <h1 class="mt-4">Hello, world!</h1>
+        <div class="mb-3">         
+            <input type="email" class="w-25 mx-auto form-control" id="text-input" placeholder="name@example.com">
+             <button id="add-btn" type="button" class="my-3 btn btn-primary">Primary</button>
+        </div>
+        <div id="parent">
+
+        </div>
+</section>
+
+    <script src="js/bootstrap.min.js"></script>
+<script>
+ document.getElementById('add-btn').addEventListener('click',function(){
+   
+    const value = document.getElementById('text-input').value;
+    const containeer = document.getElementById('parent');
+    const li = document.createElement('li');
+    li.innerText = value;
+    li.classList.add('new-list');
+    containeer.appendChild(li);
+    
+    const alllist = document.getElementsByClassName('new-list');
+    for(const list of alllist){
+        list.addEventListener('click',function(event){
+            event.target.parentNode.removeChild(event.target);
+        })
+    }
+    document.getElementById('text-input').value = '';
+
+ })
+
+</script>
+</body>
+</html>
